@@ -23,8 +23,8 @@ for hour_data in slice_data:
         will_rain=True
 if will_rain:
     print("Bring an Umbrella")
-    account_sid ='my sid from twilio'
-    auth_token ='my token from twilio'
+    account_sid =os.environ['TWILIO_ACCOUNT_SID']
+    auth_token =os.environ['auth token']
     client = Client(account_sid, auth_token)
     message=client.messages.create(
                               body='Its going to be rain bring umbrella',
@@ -33,3 +33,4 @@ if will_rain:
                           )
     print(message.status)                      
  #code defers for running on cloud 
+#make environment variable:export API_KEY=PASTE KEY TO, TO CALL ENVA CODE IS SAME LIKE FOR SID to see actual value type env in terminal
